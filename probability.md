@@ -12,9 +12,21 @@ The law is shot through with ideas about probability, uncertainty, risk, and cha
 
 - Warrants and arrests must be supported by "probable cause."
 
-- A civil plaintiff must ordinarily prove her case by a "preponderance" of the evidence, which is usually understood to mean that the elements of her case are more likely than not to be true. 
+- A civil plaintiff must ordinarily prove her case by a "preponderance" of the evidence, which is usually understood to mean that the elements of her case are more likely than not to be true.
 
+- FRE 401(a) provides that the first element of the test for relevant evidence is that "it has any tendency to make a fact more or less probable than it would be without the evidence."
 
+- Torts cases face the perennial problem of "loss of a chance," when the plaintiff's evidence shows, for example, that absent the defendant's negligence he would have had a 25% chance of surviving, and the defendant reduced that chance.
+
+- Finally, every area of law will sometimes make use of statistical evidence at trial, presented by expert witnesses. 
+
+You need to know how to work with probabilistic ideas because you won't be able to avoid them in the practice of law.
+
+Unfortunately, many lawyers, and even (especially?) many judges, are extraordinarily ignorant of probability and statistics. (Statistics will be a separate explainer, but of course the two go together.) This is unfortunate, but also provides opportunities for lawyers who aren't actually terrified of a few numbers to serve an important role on litigation teams, and even potentially win some cases over their clueless opponents. 
+
+## But I went to law school because I'm scared of math!
+
+Don't worry. I'm not trying to turn you into a data scientist here. For ordinary day-to-day legal understanding, you don't need any math more advanced than 8th grade algebra. 
 
 # Joint Probabilities 
 
