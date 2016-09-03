@@ -1,12 +1,15 @@
 (ns montyhall.core
   (:require [reagent.core :as reagent :refer [atom]]))
 
-;; -------------------------
-;; Views
 
 
-(def win 509)
-(def loss 208)
+(def win (atom 0))
+(def loss (atom 0))
+
+(defn play-monty []
+  (do
+    (reset! win (rand-int 1000))
+    (reset! loss (rand-int 100))))
 
 (defn wl-chart [w l]
   (let [win-ratio (* 200 (/ w (+ w l)))
@@ -27,7 +30,8 @@
   [:div
    [:p "test"]
    [:div
-    [wl-chart win loss]]])
+    [wl-chart @win @loss]]
+   [:button {:on-click play-monty} "shuffle"]])
 
 ;; -------------------------
 ;; Initialize app
