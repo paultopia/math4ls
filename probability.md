@@ -70,7 +70,7 @@ This provides all kind of opportunities for the skillful lawyer who isn't afraid
 
 # Don't Trust Your Intuitions
 
-There's a famous puzzle called the "Monty Hall Problem." It goes like this: imagine you're in a game show, and the host invites you to pick from three closed doors. One of the doors holds a fancy new sports car, and the other two hold goats. (Let us suppose, perhaps counterfactually, that you prefer a sports car to a goat.) After you choose, the host opens one of the OTHER doors, always to reveal a goat.
+There's a famous puzzle called the "Monty Hall Problem." It goes like this: imagine you're in a game show, and the host invites you to pick from three closed doors. One of the doors holds a fancy new sports car, and the other two hold goats. (Let us suppose, perhaps counterfactually, that you prefer a sports car to a goat.) After you choose, the host opens one of the *other* doors, always to reveal a goat.
 
 So now you've picked a door, and the host shows you a goat behind one of the other doors. Importantly, the host knows what door has the car, and s/he always opens a door you didn't choose, and it's always a goat door. Then the host asks if you want to stick with your original choice, or switch to the remaining closed door. If you want to get the sports car, should you stay or switch?
 
