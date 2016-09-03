@@ -3,8 +3,15 @@
 
 
 
-(def win (atom 0))
-(def loss (atom 0))
+(def win-stubborn (atom 0))
+(def loss-stubborn (atom 0))
+
+(def win-switcher (atom 0))
+(def loss-switcher (atom 0))
+
+(def win-random (atom 0))
+(def loss-random (atom 0))
+
 
 (defn find-remaining
   "Simulates opening (and thus eliminating) one of the goat doors, and
@@ -21,20 +28,20 @@
     :switcher remaining
     :random (rand-nth [first-guess remaining])))
 
-(defn play-monty [strategy]
+(defn play-monty [strategy win-atom loss-atom]
   (let [first-guess (rand-nth [:goat :goat :car])
         remaining (find-remaining first-guess)
         result (apply-strategy strategy first-guess remaining)]
     (cond
-      (= result :car) (swap! win inc)
-      :else (swap! loss inc))))
+      (= result :car) (swap! win-atom inc)
+      :else (swap! loss-atom inc))))
 
-(defn lotsa-monty [strategy]
+(defn lotsa-monty [strategy win-atom loss-atom]
   (do
-    (reset! win 0)
-    (reset! loss 0)
+    (reset! win-atom 0)
+    (reset! loss-atom 0)
     (dotimes [n 1000]
-      (js/setTimeout #(play-monty strategy) (* 1000 n)))))
+      (js/setTimeout #(play-monty strategy win-atom loss-atom) (* 10 n)))))
 
 (defn wl-chart [w l]
   (let [win-ratio (* 200 (/ w (+ w l)))
@@ -53,10 +60,19 @@
 
 (defn home-page []
   [:div
-   [:p "test"]
+   [:p "Stubborn strategy"]
    [:div
-    [wl-chart @win @loss]]
-   [:button {:on-click #(lotsa-monty :stubborn)} "shuffle"]])
+    [wl-chart @win-stubborn @loss-stubborn]]
+   [:button {:on-click #(lotsa-monty :stubborn win-stubborn loss-stubborn)} "Play Stubborn Strategy"]
+   [:p "Switcher strategy"]
+   [:div
+    [wl-chart @win-switcher @loss-switcher]]
+   [:button {:on-click #(lotsa-monty :switcher win-switcher loss-switcher)} "Play Switcher Strategy"]
+   [:p "Random strategy"]
+   [:div
+    [wl-chart @win-random @loss-random]]
+   [:button {:on-click #(lotsa-monty :stubborn win-random loss-random)} "Play Random Strategy"]
+])
 
 ;; -------------------------
 ;; Initialize app
