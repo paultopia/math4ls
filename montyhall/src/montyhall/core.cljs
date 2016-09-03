@@ -29,6 +29,13 @@
       (= result :car) (swap! win inc)
       :else (swap! loss inc))))
 
+(defn lotsa-monty [strategy]
+  (do
+    (reset! win 0)
+    (reset! loss 0)
+    (dotimes [n 1000]
+      (js/setTimeout #(play-monty strategy) (* 1000 n)))))
+
 (defn wl-chart [w l]
   (let [win-ratio (* 200 (/ w (+ w l)))
         lose-ratio (- 200 win-ratio)]
@@ -49,7 +56,7 @@
    [:p "test"]
    [:div
     [wl-chart @win @loss]]
-   [:button {:on-click #(play-monty :stubborn)} "shuffle"]])
+   [:button {:on-click #(lotsa-monty :stubborn)} "shuffle"]])
 
 ;; -------------------------
 ;; Initialize app
