@@ -30,21 +30,12 @@
      [:g {:transform "translate(35,0)"}
       [:rect {:width 30 :height lose-ratio :y win-ratio}]
       [:text {:y 210 :x 25} "loss"]]]
-     [:p (str "w: " w " l: " l)]]))
+     [:p (str "wins: " w)]
+     [:p (str " losses: " l)]]))
 
-(defn svg-bar-chart []
-  [:svg {:class "chart" :width 150 :height 210}
-   [:g {:transform "translate(0,0)"}
-    [:rect {:width 30 :height 160 :y 40}]
-    [:text {:y 210 :x 20} "win"]]
-   [:g {:transform "translate(35,0)"}
-    [:rect {:width 30 :height 80 :y 120}]
-    [:text {:y 210 :x 25} "loss"]]])
 
 (defn home-page []
-  [:div [:h2 "graph me"]
-   [svg-bar-chart]
-   [svg-bar-chart]
+  [:div
    [:p "test"]
    [:div
     [wl-chart win loss]]])
