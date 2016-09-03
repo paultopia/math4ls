@@ -21,11 +21,13 @@
    [:rect {:x 10 :y 10 :width 1000 :height 10}]])
 
 (defn svg-bar-chart []
-  [:svg {:class "chart" :width 500 :height 500}
+  [:svg {:class "chart" :width 200 :height 1000}
    [:g {:transform "translate(0,0)"}
-    [:rect {:width 19 :height 80 :y 80}]]
-   [:g {:transform "translate(20,0)"}
-    [:rect {:width 19 :height 40 :y 120}]]])
+    [:rect {:width 39 :height 80 :y 80}]
+    [:text {:y 170 :x 20} "win"]]
+   [:g {:transform "translate(50,0)"}
+    [:rect {:width 45 :height 40 :y 120}]
+    [:text {:y 170 :x 35} "loss"]]])
 
 (defn home-page []
   [:div [:h2 "graph me"]
