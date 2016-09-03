@@ -40,37 +40,34 @@
   (do
     (reset! win-atom 0)
     (reset! loss-atom 0)
-    (dotimes [n 1000]
-      (js/setTimeout #(play-monty strategy win-atom loss-atom) (* 10 n)))))
+    (dotimes [n 10000]
+      (js/setTimeout #(play-monty strategy win-atom loss-atom) n))))
 
-(defn wl-chart [w l]
+(defn wl-chart [w l caption]
   (let [win-ratio (* 200 (/ w (+ w l)))
         lose-ratio (- 200 win-ratio)]
     [:div
-    [:svg {:class "chart" :width 150 :height 210}
-     [:g {:transform "translate(0,0)"}
-      [:rect {:width 30 :height win-ratio :y lose-ratio}]
-      [:text {:y 210 :x 20} "win"]]
-     [:g {:transform "translate(35,0)"}
-      [:rect {:width 30 :height lose-ratio :y win-ratio}]
-      [:text {:y 210 :x 25} "loss"]]]
-     [:p (str "wins: " w)]
-     [:p (str " losses: " l)]]))
+     [:figure
+      [:figcaption (str caption ": win: " w " loss: " l)]
+      [:svg {:class "chart" :width 150 :height 210}
+       [:g {:transform "translate(0,0)"}
+        [:rect {:width 30 :height win-ratio :y lose-ratio}]
+        [:text {:y 210 :x 20} "win"]]
+       [:g {:transform "translate(35,0)"}
+        [:rect {:width 30 :height lose-ratio :y win-ratio}]
+        [:text {:y 210 :x 25} "loss"]]]]]))
 
 
 (defn home-page []
   [:div
-   [:p "Stubborn strategy"]
    [:div
-    [wl-chart @win-stubborn @loss-stubborn]]
+    [wl-chart @win-stubborn @loss-stubborn "Stubborn"]]
    [:button {:on-click #(lotsa-monty :stubborn win-stubborn loss-stubborn)} "Play Stubborn Strategy"]
-   [:p "Switcher strategy"]
    [:div
-    [wl-chart @win-switcher @loss-switcher]]
+    [wl-chart @win-switcher @loss-switcher "Switcher"]]
    [:button {:on-click #(lotsa-monty :switcher win-switcher loss-switcher)} "Play Switcher Strategy"]
-   [:p "Random strategy"]
    [:div
-    [wl-chart @win-random @loss-random]]
+    [wl-chart @win-random @loss-random "Random"]]
    [:button {:on-click #(lotsa-monty :stubborn win-random loss-random)} "Play Random Strategy"]
 ])
 
