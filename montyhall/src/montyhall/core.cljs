@@ -1,8 +1,6 @@
 (ns montyhall.core
   (:require [reagent.core :as reagent :refer [atom]]))
 
-
-
 (def win-stubborn (atom 0))
 (def loss-stubborn (atom 0))
 
@@ -11,7 +9,6 @@
 
 (def win-random (atom 0))
 (def loss-random (atom 0))
-
 
 (defn find-remaining
   "Simulates opening (and thus eliminating) one of the goat doors, and
@@ -57,8 +54,7 @@
         [:rect {:width 30 :height lose-ratio :y win-ratio}]
         [:text {:y 210 :x 25} "loss"]]]]]))
 
-
-(defn home-page []
+(defn monty-page []
   [:div
    [:div
     [wl-chart @win-stubborn @loss-stubborn "Stubborn"]]
@@ -68,14 +64,13 @@
    [:button {:on-click #(lotsa-monty :switcher win-switcher loss-switcher)} "Play Switcher Strategy"]
    [:div
     [wl-chart @win-random @loss-random "Random"]]
-   [:button {:on-click #(lotsa-monty :stubborn win-random loss-random)} "Play Random Strategy"]
-])
+   [:button {:on-click #(lotsa-monty :stubborn win-random loss-random)} "Play Random Strategy"]])
 
 ;; -------------------------
 ;; Initialize app
 
 (defn mount-root []
-  (reagent/render [home-page] (.getElementById js/document "app")))
+  (reagent/render [monty-page] (.getElementById js/document "app")))
 
 (defn init! []
   (mount-root))
