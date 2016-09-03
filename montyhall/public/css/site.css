@@ -42,3 +42,20 @@ a:hover {
   font: 12px sans-serif;
   text-anchor: end;
 }
+
+button {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Bitter",serif;
+    line-height: 1.8;
+    appearance: none;
+    box-shadow: none;
+    border-radius: 20px;
+    background-color: #6496c8;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+}

@@ -1,8 +1,8 @@
 (defproject montyhall "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :description "Simple simulation of monty hall problem, and explanation"
+  :url "https://github.com/paultopia/math4ls/tree/master/montyhall"
+  :license {:name "MIT License"
+            :url "https://opensource.org/licenses/MIT"}
 
   :dependencies [[org.clojure/clojure "1.8.0" :scope "provided"]
                  [org.clojure/clojurescript "1.9.93" :scope "provided"]
