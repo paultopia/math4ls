@@ -83,3 +83,12 @@ By contrast, here's the correct way to reason. The host actually gave you additi
 This is a famously difficult problem, and the vast majority of people initially tend to pick the wrong answer. It tends to break our ordinary intuitions, and as a result serves as an excellent demonstration of the fact that you really can't trust your intuitive judgments when it comes to probability.
 
 In case you still don't believe me (and I understand if you don't), you can go online to see this explanation paired with a computer simulation of switching and sticking strategies at http://paul-gowder.com/montyhall/ ---and even includes a link to a mathematical explanation (but really, try to do that part yourself before following the link).  
+
+Here's another way to think of the problem (with thanks to my friend Corey Yanofsky): 
+
+1. Host never offers you the chance to switch; you win 1/3 of the time.
+
+2. Host offers, you're stubborn and never switch: always produces the same outcome as if the host never gave you a chance to switch. Hence 1/3 of the time.
+
+3. Always switch: wins whenever a stubborn player would lose and loses whenever the stubborn player would win; therefore wins 2/3 of the time.
+
