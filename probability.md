@@ -68,6 +68,56 @@ Well, it's not clear.^[*See, e.g.*, Edward K. Cheng, *Reconceptualizing the Burd
 
 This provides all kind of opportunities for the skillful lawyer who isn't afraid of math. Suppose you're defense counsel, and plaintiff's experts have testified that the probability of those factual issues is each .7. The moment plaintiff's rests, if you understand probability, you should instantly move for a directed verdict and argue for the judge to apply the all-the-facts rule. You might not win, especially if those scholars who argue that the preponderance of the evidence standard isn't probabilistic are right, but it's a sufficiently compelling argument to be well worth trying. This is also something that you could argue to the jury, or try to get in a jury instruction.
 
+# Conditional Probabilities
+
+One of the most important probability topics to understand, and one that people almost always get wrong---often to dire consequences---is conditional probability. 
+
+Conditional probability is a recognition of the fact that some events are not independent. So we need a way of describing the effect that one event happens on the probability of another. For a ridiculous example, the probability that I'll get a concussion today is pretty low, but the probability that I'll get a concussion *given* that I play for the Hawkeyes and there's a football game today is much higher. If we're trying to make judgments about my likelihood of getting a head injury, it would be pretty stupid to fail to take into account that I'm involved in an activity that primarily involves gigantic people bashing my head.^[Bayesians would say that every probability is conditional on the rest of the information I know in the world. But this is more of a philosophical dispute than a practical one for the level of understanding you need.]
+
+The mathematical notation of probability is: 
+
+$P(B|A)$ 
+
+The vertical line signifies the conditional nature of the relationship, i.e., the probability of B conditional on A (imagine B as the concussion, and A as my being a football player). 
+
+It turns out that there's a simple formula for calculating conditional probabilities. I'll give you the math first, and then we'll talk through it: 
+
+$P(B|A) = \frac{P(A|B)P(B)}{P(A)}$
+
+In words: the probability of event B conditional on event A is the product of the probability of event A conditional on event B and the probability of event B, all divided by the probability of event A. 
+
+Here's a concrete example. Suppose you want to know the probability that I'm a football player, given that I have a concussion. Here's how you'd calculate it: 
+
+$P(Football|Concussion) = \frac{P(Concussion|Football)P(Football)}{P(Concussion)}$
+
+So let's get some numbers up in this exploitative college sport/financial scam. Assume that: 
+
+The probability of my having a concussion, given that I'm a football player, is .5: 
+
+$P(Concussion|Football) = .5$
+
+The probability of my being a football player without knowing anything else about me (the "base rate" of football players in the population, or, to Bayesians, the "prior" that you have in my being a football player) is, blessedly, low, say .01: 
+
+$P(Football) = .01$
+
+The probability of my having a concussion without knowing anything else about me (the base rate of concussions) is also pretty low, let's call that .03. 
+
+$P(Concussion) = .03$
+
+So then we can just plug the numbers into our Bayes' Rule equation and come up with our answer:
+
+$P(Football|Concussion) = \frac{(0.5)(0.01)}{(0.03)} = 0.17$
+
+Conceptually, that equation represents the additional information you get about whether I'm likely to be a football player, as a result of learning that I have a concussion. If you're a Bayesian, we'd say that you now have .17 subjective probability in my being a football player, as opposed to merely .01 before; if you're a frequentist you'd say that you expect about 17% of the people you meet who have concussions to be football players, as opposed to 1% of people in the general population.^[Note: I made these numbers up, of course. But really, football is awful.]
+
+# A Collection of Stupid Mistakes
+
+## Base Rates
+
+## Joint Probabilities vs. Individual Probabilities
+
+[cognitive bias, firefighter and has a pickup vs just firefighter etc.]
+
 # Don't Trust Your Intuitions
 
 There's a famous puzzle called the "Monty Hall Problem." It goes like this: imagine you're in a game show, and the host invites you to pick from three closed doors. One of the doors holds a fancy new sports car, and the other two hold goats. (Let us suppose, perhaps counterfactually, that you prefer a sports car to a goat.) After you choose, the host opens one of the *other* doors, always to reveal a goat.
