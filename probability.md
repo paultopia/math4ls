@@ -138,9 +138,31 @@ $P(Disease|Positive) = \frac{P(Positive|Disease)P(Disease)}{P(Positive)} = \frac
 
 Unsurprisingly, this is the same result we got before. 
 
-## Joint Probabilities vs. Individual Probabilities
+## The Conjunction Fallacy.
 
-[cognitive bias, firefighter and has a pickup vs just firefighter etc.]
+Here's another classic probability oopsie: 
+
+> Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy. As a student, she was deeply concerned with issues of discrimination and social justice, and also participated in anti-nuclear demonstrations.
+>
+> a) Linda is a teacher in elementary school. 
+> 
+> b) Linda works in a bookstore and takes Yoga classes.
+>
+> c) Linda is active in the feminist movement. 
+> 
+> d) Linda is a psychiatric social worker. 
+> 
+> e) Linda is a member of the League of Women Voters.
+> 
+> f) Linda is a bank teller.
+> 
+> g) Linda is an insurance salesperson.
+> 
+> h) Linda is a bank teller and is active in the feminist movement.
+
+Asked to rank these statements in order of probability, the "great majority" of people said that (h) is more probable than (f).^[Amos Tversky & Daniel Kahneman, *Extensional versus intuitive reasoning: The conjunction fallacy in probability judgment,* 90 Psychological Review 293 (1983). I've slightly modified the example given in this paper to more clearly enumerate the options.]  Here's the problem with that judgment: it's *impossible*.  Remember that probabilities lie on the range 0-1 inclusive, and that the joint probability of two independent events is the product of their individual probabilities. It follows that the *maximum* probability of Linda being active in the feminist movement is 1, in which case P(h) = P(f); in all other possible cases, P(h) < P(f). 
+
+This is called the "conjunction fallacy."  Don't make it.^[Note that there's been a ton of debate on the original study, mainly focused on whether experimental subjects really understood (f) to be talking about P(Bank teller) alone and whether they understood (h) to be asking about the conjunction independent events P(Bank teller) and P(Feminist). There have been lots of replication attempts for this experiment in slightly different forms in order to nail it down. If you're worried about them, go read the literature. For present purposes, I just want you to see the error: joint probabilities of independent events can never be more than the individual probability of the least probable individual event.]
 
 # Don't Trust Your Intuitions
 
