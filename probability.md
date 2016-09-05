@@ -299,3 +299,9 @@ Here's another way to think of the problem (with thanks to my friend Corey Yanof
 3. Always switch: wins whenever a stubborn player would lose and loses whenever the stubborn player would win; therefore the switcher wins 2/3 of the time.
 
 Here's still another way to think of the problem: suppose instead of 3 doors, there are 100 doors, and the host opens 98 of them. Does switching seem more plausible now? 
+
+# Application: Expected Value
+
+(expected value idea, probability weighted values as equivalent and hence substitutible for ordinary values)
+
+(calculating loss of chance)
