@@ -3,7 +3,7 @@ title: Probability for Law Students (Draft 1)
 author: Paul Gowder 
 toc: true
 toc_depth: 3
-date: September 2, 2016 
+date: September 5, 2016 
 ---
 
 # Why?
@@ -42,23 +42,87 @@ There are two big theoretical interpretations of probability, the frequentist an
 
 By contrast, the Bayesian interpretation is about subjective beliefs.  On the Bayesian interpretation, when I say that I have a subjective probability of .75 in winning the lottery, what I mean is that if I make a large number of predictions with a .75 probability, I expect them to be true about 75% of the time. That is, a Bayesian probability represents a subjective sense of uncertainty.  
 
-For the most part, you don't need to care about these different interpretations.  Statisticians and philosophers care about them a lot, but the practical implications of the two worldviews won't come up in much that lawyers need to deal with. Importantly, in a bit I'll introduce an idea called *Bayes Rule*, but this is *not* a concept that is limited to people to Bayesians, frequentists recognize it too---it's a basic mathematical fact. 
+For the most part, you don't need to care about these different interpretations.  Statisticians and philosophers care about them a lot, but the practical implications of the two worldviews won't come up in much that lawyers need to deal with. Importantly, in a bit I'll introduce an idea called *Bayes Rule*, but this is *not* a concept that is limited to people to Bayesians, frequentists recognize it too---it's a basic mathematical fact.
+
+
 
 # Probability math
 
 ## A single event
 
+For the purposes of having an intuition for this kind of thing, you can think of the probability of a single event as just the proportional frequency of an event in the space of possible events under similar circumstances. If 5 of every 100 people who file suits for negligence win their cases at trial, then the probability of winning a negligence case at trial, assuming no other information, is .05. 
 
+Usually we express the probability of some event with a capital P, like P(Win your negligence suit).
 
-Independence
- Conditional probabilities
-Base rates.
+Then it's real easy to calculate the probability of a single event: 
 
-Basic calculation, marbles.
+$P(event) = \frac{ways-that-event-can-happen}{ways-anything-can-happen}$
 
-# Joint Probabilities 
+For example, suppose I have a jar of 30 marbles, and 3 of them are red. There are three ways I can pick a red marble, and 30 total ways I can pick any marble (if we interpret "grabbing a marble" as a "way"). Therefore, by the math above, the probability of getting a red marble is .1.  It's really that simple.
 
-The joint probability of events/facts X and Y is defined as the probability that both are true at the same time.  If X and Y are independent, that's just the product of the probabilities of each. [MORE DETAILS, CONDITIONAL STUFF MAYBE HAS TO COME FIRST?  OR COME AFTER?]
+## Multiple Events
+
+The real interesting kind of probability math is what happens when we combine them. But before we dig into that math, we should first define some terms and simple rules.
+
+### Basic ideas and rules
+
+First, two (or more) events are **independent** if they don't affect one another, or, put differently, if knowing about one of them doesn't affect our judgment about how probable the other is. For example, who I call on in Torts class and the winner of the Kentucky Derby are independent: horse races don't affect who I call on, and vice versa.^[If you're a bit of a jerk, you might imagine degenerate cases where this might not be true. For example, suppose the owner of the winning horse is in my class, but quits law school after the race makes him/her rich? Or suppose my questions are so unkind that I demoralize one of the students, who quits law school to become a horse trainer? Fine, *in the ordinary course of events* those two are independent.]
+
+Two (or more) events are **mutually exclusive** if they cannot occur at the same time. For example, my becoming Pope and my being a Protestant are mutually exclusive. 
+
+A set of events is *exhaustive* if they describe all possible events under the circumstances. For example, here is an exhaustive set of the relationships I might have with the University of Iowa College of Law: 
+
+- I'm a faculty member.
+
+- I'm a staff member.
+
+- I'm an administrator.
+
+- I'm a student.
+
+- I'm not affiliated with the law school. 
+
+If a set of events is mutually exclusive and exhaustive, then their probabilities always sum to 1. 
+
+Moreover, an event and its **complement** are always mutually exclusive and exhaustive. "Complement" is just a fancy way of saying "add the word 'not' to the front of it."^[Traditionally, probability uses notation as well as language from mathematical set theory. But I'm trying to spare you this as much as possible, because, law school.] For example, the following two events are complements: 
+
+- I'm king of the world.
+
+- I'm not king of the world.
+
+It follows that P(Gowder is king of the world) + P(Gowder is not king of the world) = 1, because, being complements, they're mutually exclusive and exhaustive. 
+
+By some basic algebra, we also get **the subtraction rule**: the probability of any event is just the probability of its complement, subtracted from 1. For example, if I have a .8 chance of being king of the world, then it follows that I have a .2 chance of not being king of the world. 
+
+### Alternative probabilities
+
+For mutually exclusive events, we have **the addition rule**: if A and B are mutually exclusive events, then the probability of one or the other being true is just equal to the sum of their probabilities. 
+
+Here's a concrete example: what's the probability of me being either Pope or a Protestant?  Well, let's suppose the probability of my being Pope is .00001, and the probability of my being Protestant is .05. Then the probability of my being either Pope or Protestant is .05001, the sum P(Pope) + P(Protestant).
+
+In set-theory language, this "or" relationship is called the **union** of the two events; in other words, the probability that either A or B occurs is called the probability of the union of A and B is denoted: 
+
+$P(A \cup B)$
+
+The addition rule can be extended to the case where A and B are not mutually exclusive. Under those circumstances, the probability that either A or B occurs is just the sum of the probability of A plus the probability of B, *minus* the probability of both A and B happening. 
+
+The probability of both A and B happening also has a set theory term and notation. It's called the **intersection** of A and B, and is denoted: 
+
+$P(A \cap B)$
+
+Our expanded addition rule can then be expressed in mathematical notation as following:
+
+$P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+
+Note that we can derive the shorter version of the addition rule that we started with from the longer version I just gave you. If two events are mutually exclusive, then the probability of their union is 0, so the third term in that longer equation just drops away, leaving us with the shorter version. 
+
+### Joint Probabilities 
+
+But how do we calculate the intersection of probabilities?  The intersection is also known as the joint probability of events A and B. To remind you, that just means the probability that both are true at the same time.
+
+If A and B are independent, that's just the product of the probabilities of each. This is the **multiplication rule**: 
+
+$P(A \cap B) = P(A)P(B)$
 
 The notion of joint probability reveals a potential puzzle in the law. Suppose a trial finishes in a case that hinges on two independent factual issues. For example, suppose we have a toxic tort case. Defendant denies that the chemical produced by its plant was in the water supply, but also denies that the chemical could, as a matter of biology, have caused the ill effects plaintiff suffered. Plaintiff needs to prove both of those things in order to win, but the probability of one being true is not affected by the probability of the other being true (whether the chemical is poisonous doesn't affect whether it was in the water supply, and vice versa).
 
@@ -68,13 +132,15 @@ Well, it's not clear.^[*See, e.g.*, Edward K. Cheng, *Reconceptualizing the Burd
 
 This provides all kind of opportunities for the skillful lawyer who isn't afraid of math. Suppose you're defense counsel, and plaintiff's experts have testified that the probability of those factual issues is each .7. The moment plaintiff's rests, if you understand probability, you should instantly move for a directed verdict and argue for the judge to apply the all-the-facts rule. You might not win, especially if those scholars who argue that the preponderance of the evidence standard isn't probabilistic are right, but it's a sufficiently compelling argument to be well worth trying. This is also something that you could argue to the jury, or try to get in a jury instruction.
 
-# Conditional Probabilities
+*But what if events aren't independent?* 
+
+### Conditional Probabilities
 
 One of the most important probability topics to understand, and one that people almost always get wrong---often to dire consequences---is conditional probability. 
 
 Conditional probability is a recognition of the fact that some events are not independent. So we need a way of describing the effect that one event happens on the probability of another. For a ridiculous example, the probability that I'll get a concussion today is pretty low, but the probability that I'll get a concussion *given* that I play for the Hawkeyes and there's a football game today is much higher. If we're trying to make judgments about my likelihood of getting a head injury, it would be pretty stupid to fail to take into account that I'm involved in an activity that primarily involves gigantic people bashing my head.^[Bayesians would say that every probability is conditional on the rest of the information I know in the world. But this is more of a philosophical dispute than a practical one for the level of understanding you need.]
 
-The mathematical notation of probability is: 
+The mathematical notation of conditional probability is: 
 
 $P(B|A)$ 
 
@@ -109,6 +175,50 @@ So then we can just plug the numbers into our Bayes' Rule equation and come up w
 $P(Football|Concussion) = \frac{(0.5)(0.01)}{(0.03)} = 0.17$
 
 Conceptually, that equation represents the additional information you get about whether I'm likely to be a football player, as a result of learning that I have a concussion. If you're a Bayesian, we'd say that you now have .17 subjective probability in my being a football player, as opposed to merely .01 before (your "posterior probability" as opposed to your "prior probability"); if you're a frequentist you'd say that you expect about 17% of the people you meet who have concussions to be football players, as opposed to 1% of people in the general population.^[Note: I made these numbers up, of course. But really, football is awful.]
+
+### Independence and Joint Probability Revisited.
+
+Now that we have the notion of conditional probability, we can go back and state a formal definition of independence. Events A and B are independent if: 
+
+$P(A) = P(A|B)$ 
+
+That is, they're independent if whether or not B happens doesn't affect A. 
+
+If you want to practice your algebra, you can prove that if the condition above is true, it's also true that: 
+
+$P(B) = P(B|A)$ 
+
+Hint: try plugging stuff into Bayes Rule and then factoring stuff out.
+
+We can also conclude that the conditional probability of an event given its complement is 0. There are lots of ways to write this (complement notation doesn't seem to be particularly standardized), but here's one way: 
+
+$P(A|\overline{A}) = 0$
+
+Now that we have the notion of conditional probability, we can also get a formula for calculating the joint probability of dependent events. Where A and B are dependent (that is, *not independent*):
+
+$P(A \cap B) = P(A)P(B|A)$
+
+This is just our earlier multiplication rule for joint probability again: we multiply the probability of A by the probability of A given B to get the joint probability of A and B.
+
+Note how we can derive our original version of the multiplication rule (for independent events) from this expanded version. If A and B are independent, then:
+
+$P(B) = P(B|A)$ 
+
+hence we can substitute that into the above equation, and get our original multiplication rule: 
+
+$P(A \cap B) = P(A)P(B)$
+
+The classic example to understand the reasoning behind the expanded multiplication rule is drawing cards. If you draw cards from a normal deck and don't put them back, then the probability of the first card being a heart is just 13/52 = 1/4. What's the probability of drawing a second heart? 
+
+We can actually imagine the probability of drawing a heart given that you've already drawn a heart as a totally independent event. To think that way, imagine that the first event never happened, and that we just happened to come into the world with a deck of cards with 51 cards in it, 12 of which were hearts. Then what's the probability of drawing two hearts in a row?  Easy: 1/4 * 12/51.^[There's a deep conceptual idea here. The probability of an event A and the probability of some other event B conditional on A are independent, because whether or not A happens can't affect the probability of B happening given that A has happened. (NOTE TO SELF: take the trouble to prove this??)]
+
+We can also chain this rule, i.e.: 
+
+$P(A \cap B \cap C) = P(A)P(B | A)P(C | A \cap B)$
+
+Think about the probability of drawing a third heart in a row. 
+
+
 
 # A Collection of Mistakes
 
