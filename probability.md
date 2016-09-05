@@ -100,7 +100,7 @@ The probability of my being a football player without knowing anything else abou
 
 $P(Football) = .01$
 
-The probability of my having a concussion without knowing anything else about me (the base rate of concussions) is also pretty low, let's call that .03. 
+The probability of my having a concussion without knowing anything else about me (the base rate of concussions) is also pretty low, let's call that .03: 
 
 $P(Concussion) = .03$
 
@@ -108,11 +108,35 @@ So then we can just plug the numbers into our Bayes' Rule equation and come up w
 
 $P(Football|Concussion) = \frac{(0.5)(0.01)}{(0.03)} = 0.17$
 
-Conceptually, that equation represents the additional information you get about whether I'm likely to be a football player, as a result of learning that I have a concussion. If you're a Bayesian, we'd say that you now have .17 subjective probability in my being a football player, as opposed to merely .01 before; if you're a frequentist you'd say that you expect about 17% of the people you meet who have concussions to be football players, as opposed to 1% of people in the general population.^[Note: I made these numbers up, of course. But really, football is awful.]
+Conceptually, that equation represents the additional information you get about whether I'm likely to be a football player, as a result of learning that I have a concussion. If you're a Bayesian, we'd say that you now have .17 subjective probability in my being a football player, as opposed to merely .01 before (your "posterior probability" as opposed to your "prior probability"); if you're a frequentist you'd say that you expect about 17% of the people you meet who have concussions to be football players, as opposed to 1% of people in the general population.^[Note: I made these numbers up, of course. But really, football is awful.]
 
 # A Collection of Stupid Mistakes
 
-## Base Rates
+There are a bunch of really classic errors that people make with probability. Don't make them.
+
+## Ignoring Base Rates
+
+The first mistake is just not getting the whole Bayes thing, like, at all. Consider this classic example.  Suppose there's a medical test for some disease, and let's say that it has a 95% accuracy rate. To be more precise, let's say that 95% of the time it says what it should say, given the state of the world: if a patient has the disease, 95% of the time it returns a positive result; if the patient does not have the disease, 95% of the time it returns a negative result.^[Statistical lingo you might see floating around: a Type I error is a "false positive," i.e., if the machine sees someone without the disease and returns a positive result; a Type II error is a "false negative," i.e., if the machine sees someone with the disease and returns a negative result. For simplicity, we're assuming here that the test has identical Type I and Type II error rates.]
+
+Imagine you're a doctor, and you administer that test to a patient. It reads positive. *Are you justified in concluding that there's a 95% chance they have the disease?*  The answer is "no, not without first taking into account the base rate of disease in the population" but this is an incredibly common mistake; people sometimes make incredibly consequential decisions based on this blunder. 
+
+Let's work through this problem.  We can do it in two ways. Both ways require making an assumption about the base rate of the disease in the population. So let's suppose that 2% of the people in the population have the disease.
+
+Ok, first we'll do it a simple and intuitive way. Suppose we test 1000 people. 20 of them will have the disease. Of those, the machine will correctly identify 19, so it'll return 19 positive results and 1 negative results. 980 of our 1000 people will *not* have the disease, but our 95% accuracy machine will only identify 931 of those correctly: it'll return 931 negative results and 49 positive results. 
+
+So out of our 1000 people, we'll get a total of 68 positive results. Of those results, only 19 of the people will have the disease. That's only about 28% (after some rounding)! So you can only conclude that an individual person has a 28 chance of having the disease, not a 95% chance.
+
+Ok, let's do this a bit more formally using Bayes' Rule. This will require some thinking. We want to know the probability of the patient having the disease, given that s/he tested positive. We know the probability of the patient testing positive, given that s/he has the disease (.95), and we know the base rate probability of the patient having the disease (.02), but we seem to be missing a term in our equation: we don't know the base rate probability of getting a positive result on the test. Or do we?
+
+Well, actually, we can calculate it simply by exhaustively describing the possible disjoint states of the world. Let's imagine a patient. 98% of the time, the patient does not have the disease, and 5% of the time, that patient will get a positive result. 2% of the time, the patient will have the disease, and 95% of the time, that patient will get a positive result. So then we can calculate the base rate of the machine returning positive as: 
+
+$P(Positive) = (.98 * .05) + (.02 * .95) = .068$
+
+Now we can plug this all right into Bayes' Rule: 
+
+$P(Disease|Positive) = \frac{P(Positive|Disease)P(Disease)}{P(Positive)} = \frac{(.95)(.02)}{(.068)} ~ .28$
+
+Unsurprisingly, this is the same result we got before. 
 
 ## Joint Probabilities vs. Individual Probabilities
 
@@ -140,5 +164,6 @@ Here's another way to think of the problem (with thanks to my friend Corey Yanof
 
 2. Host offers, you're stubborn and never switch: always produces the same outcome as if the host never gave you a chance to switch. Hence 1/3 of the time.
 
-3. Always switch: wins whenever a stubborn player would lose and loses whenever the stubborn player would win; therefore wins 2/3 of the time.
+3. Always switch: wins whenever a stubborn player would lose and loses whenever the stubborn player would win; therefore the switcher wins 2/3 of the time.
 
+Here's still another way to think of the problem: suppose instead of 3 doors, there are 100 doors, and the host opens 98 of them. Does switching seem more plausible now? 
