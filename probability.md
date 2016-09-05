@@ -110,7 +110,7 @@ $P(Football|Concussion) = \frac{(0.5)(0.01)}{(0.03)} = 0.17$
 
 Conceptually, that equation represents the additional information you get about whether I'm likely to be a football player, as a result of learning that I have a concussion. If you're a Bayesian, we'd say that you now have .17 subjective probability in my being a football player, as opposed to merely .01 before (your "posterior probability" as opposed to your "prior probability"); if you're a frequentist you'd say that you expect about 17% of the people you meet who have concussions to be football players, as opposed to 1% of people in the general population.^[Note: I made these numbers up, of course. But really, football is awful.]
 
-# A Collection of Stupid Mistakes
+# A Collection of Mistakes
 
 There are a bunch of really classic errors that people make with probability. Don't make them.
 
@@ -164,7 +164,7 @@ Asked to rank these statements in order of probability, the "great majority" of 
 
 This is called the "conjunction fallacy."  Don't make it.^[Note that there's been a ton of debate on the original study, mainly focused on whether experimental subjects really understood (f) to be talking about P(Bank teller) alone and whether they understood (h) to be asking about the conjunction independent events P(Bank teller) and P(Feminist). There have been lots of replication attempts for this experiment in slightly different forms in order to nail it down. If you're worried about them, go read the literature. For present purposes, I just want you to see the error: joint probabilities of independent events can never be more than the individual probability of the least probable individual event.]
 
-# Don't Trust Your Intuitions
+## Monty Hall
 
 There's a famous puzzle called the "Monty Hall Problem." It goes like this: imagine you're in a game show, and the host invites you to pick from three closed doors. One of the doors holds a fancy new sports car, and the other two hold goats. (Let us suppose, perhaps counterfactually, that you prefer a sports car to a goat.) After you choose, the host opens one of the *other* doors, always to reveal a goat.
 
