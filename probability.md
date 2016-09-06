@@ -86,7 +86,7 @@ A set of events is *exhaustive* if they describe all possible events under the c
 
 - I'm not affiliated with the law school. 
 
-If a set of events is mutually exclusive and exhaustive, then their probabilities always sum to 1. 
+If a set of events is mutually exclusive and exhaustive, then their probabilities always sum to 1. Think about our example: it's definitely true that I'm either faculty, staff, administrator, student, or not affiliated. 
 
 An event and its **complement** are always mutually exclusive and exhaustive. "Complement" is just a fancy way of saying "add the word 'not' to the front of it."^[Traditionally, probability uses notation as well as language from mathematical set theory. But I'm trying to spare you this as much as possible, because, law school.] For example, the following two events are complements: 
 
@@ -127,6 +127,8 @@ But how do we calculate the intersection of probabilities?  The intersection is 
 If A and B are independent, the intersection is just the product of the probabilities of each. This is the **multiplication rule**: 
 
 $P(A \cap B) = P(A)P(B)$
+
+Here's an example. Suppose I flip a coin twice. Each coin flip is an independent event. So what's the probability of my getting heads twice? Let's reason through it in words. Half of the time, I get heads on the first flip. Then, *half of that first half* I get heads on the second flip. Put differently, I flip two coins every day for 100 days, I expect that on roughly 50 of those days I'll get heads the first time. And then on roughly half of those 50 days, or 25 days, I'll get a second head too.
 
 #### An immediate application
 
@@ -200,9 +202,17 @@ $P(B) = P(B|A)$
 
 Hint: try plugging stuff into Bayes Rule and then factoring stuff out.
 
+Another (equivalent) definition of independence is that A and B are independent if: 
+
+$P(A \cap B) = P(A)P(B)$
+
+That's just the multiplication rule flipped around, if you understand our coin flipping example you understand why that's true. 
+
 We can also conclude that the conditional probability of an event given its complement is 0. There are lots of ways to write this (complement notation doesn't seem to be particularly standardized), but here's one way: 
 
 $P(A|\overline{A}) = 0$
+
+Why? Well, because we know that if not-X happened, then X definitely didn't happen. The conditional probability of my being king of the world, given that I'm not king of the world, has to be zero. 
 
 Now that we have the notion of conditional probability, we can also get a formula for calculating the joint probability of dependent events. Where A and B are dependent (that is, *not independent*):
 
