@@ -230,9 +230,7 @@ $P(A \cap B) = P(A)P(B)$
 
 The classic example to understand the reasoning behind the expanded multiplication rule is drawing cards. If you draw cards from a normal deck and don't put them back, then the probability of the first card being a heart is just 13/52 = 1/4. What's the probability of drawing a second heart? 
 
-We can actually imagine the probability of drawing a heart given that you've already drawn a heart as a totally independent event. To think that way, imagine that the first event never happened, and that we just happened to come into the world with a deck of cards with 51 cards in it, 12 of which were hearts. Then what's the probability of drawing two hearts in a row?  Easy: 1/4 * 12/51.
-
-There's actually an important insight here. Intuitively, the probability of an event A and the probability of some other event B conditional on A are independent, because whether or not A happens can't affect the probability of B happening given that A has happened. Put differently, we can't double-count the effect of A's happening on B.
+Well, imagine that instead of drawing from the same deck, someone just gave you a *second* deck of cards with 51 cards in it, 12 of which were hearts. We know the probability of drawing a heart in that second deck, right? 12/51. That world is just the world described by the conditional probability of drawing a second heart given that you've already drawn a first. So what's the probability of drawing a heart out of the normal deck and a heart out of the weird second deck? Easy: 1/4 * 12/51.
 
 We can also chain this rule, i.e.: 
 
